@@ -9,6 +9,12 @@ This library is <b>garanteed</b> up to a certain point, this means that any modi
 <section>
   <b>Inside your server.js</b><br>
   <code>
+    // COMPLETE EXAMPLE
+    
+    
+    
+    
+    
     // Express
     const express = require('express');
     const app = express();
