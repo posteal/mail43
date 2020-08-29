@@ -6,10 +6,9 @@ This library is <b>garanteed</b> up to a certain point, this means that any modi
 <h1>How to use it</h1>
 <b>Install</b>
 <pre>npm i express nodemailer mail43 --save</pre><br>
-<section>
   <b>Inside your server.js</b><br>
   <pre>
-  // Express
+// Express
 const express = require('express');
 const app = express();
 
@@ -32,7 +31,7 @@ const EMAIL_ACCOUNT = new mail43.account(app, 'YOURDOMAIN.COM', {
 // verifying an user
 const verification = EMAIL_ACCOUNT.verify('example@gmail.com', {
   subject: 'Email verification test',
-  body: 'Hello world!<br>Press this button: {button}<br>Or if it doesn't work, use this link {link}'
+  body: 'Hello world!&lt;br>Press this button: {button}&lt;br>Or if it doesn't work, use this link {link}'
 }, 'YOUR_REDIRECT_URL', feed)
 
 // handling feeds
@@ -42,11 +41,9 @@ function feed(callback_type, data){
   else if(callback_type === 'verified' && data === verification) console.log("User verified the Email Account, UUID: %s", data);
 }
 
-
-// Starting sever
+// Starting server
 app.listen(3000);
 </pre>
-</section>
 
 <h1>Understanging the example (STEP by STEP)</h1>
 <span>First, you have to install Express, Nodemailer and Mail43</span>
