@@ -10,41 +10,41 @@ This library is <b>garanteed</b> up to a certain point, this means that any modi
   <b>Inside your server.js</b><br>
   <pre>
   // Express
-  const express = require('express');
-  const app = express();
+const express = require('express');
+const app = express();
 
-  /* 
-   *
-   * mail43
-   *
-   */
-  const mail43 = require('mail43');
+/* 
+ *
+ * mail43
+ *
+ */
+const mail43 = require('mail43');
 
-  // declaring an email account
-  const EMAIL_ACCOUNT = new mail43.account(app, 'YOURDOMAIN.COM', {
-    host: 'smtp.example.com',
-    port: 465,
-    use_tls: true,
-    username: 'no-reply@example.com',
-    password: 'Your email password'
-  });
+// declaring an email account
+const EMAIL_ACCOUNT = new mail43.account(app, 'YOURDOMAIN.COM', {
+  host: 'smtp.example.com',
+  port: 465,
+  use_tls: true,
+  username: 'no-reply@example.com',
+  password: 'Your email password'
+});
 
-  // verifying an user
-  const verification = EMAIL_ACCOUNT.verify('example@gmail.com', {
-    subject: 'Email verification test',
-    body: 'Hello world!<br>Press this button: {button}<br>Or if it doesn't work, use this link {link}'
-  }, 'YOUR_REDIRECT_URL', feed)
+// verifying an user
+const verification = EMAIL_ACCOUNT.verify('example@gmail.com', {
+  subject: 'Email verification test',
+  body: 'Hello world!<br>Press this button: {button}<br>Or if it doesn't work, use this link {link}'
+}, 'YOUR_REDIRECT_URL', feed)
 
-  // handling feeds
-  function feed(callback_type, data){
-     if(callback_type === 'error') throw new Error(data);
-     else if(callback_type === 'sended') console.log("Sended email verification (UUID: %s", data);
-     else if(callback_type === 'verified' && data === verification) console.log("User verified the Email Account, UUID: %s", data);
-  }
+// handling feeds
+function feed(callback_type, data){
+  if(callback_type === 'error') throw new Error(data);
+  else if(callback_type === 'sended') console.log("Sended email verification (UUID: %s", data);
+  else if(callback_type === 'verified' && data === verification) console.log("User verified the Email Account, UUID: %s", data);
+}
 
 
-  // Starting sever
-  app.listen(3000);
+// Starting sever
+app.listen(3000);
 </pre>
 </section>
 
