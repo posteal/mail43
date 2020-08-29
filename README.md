@@ -54,3 +54,5 @@ This library is <b>garanteed</b> up to a certain point, this means that any modi
     app.listen(3000);
   </code>
 </section>
+
+<h1 style="color: #0373fc">Understanging the example</h1>
