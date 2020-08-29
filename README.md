@@ -45,7 +45,8 @@ This library is <b>garanteed</b> up to a certain point, this means that any modi
     function feed(callback_type, data){
        if(callback_type === 'error') throw new Error(data);
        else if(callback_type === 'sended') console.log("Sended email verification (UUID: %s", data);
-       else if(callback_type === 'verified') console.log("User verified the Email Account, UUID: %s", data);
+       else if(callback_type === 'verified' && data === verification) console.log("User verified the Email Account, UUID: %s", data);
+      
     }
 
     
