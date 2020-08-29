@@ -7,7 +7,7 @@ This library is <b>garanteed</b> up to a certain point, this means that any modi
 <b>Install</b>
 <code>npm i express nodemailer mail43 --save</code><br>
 <section>
-  <b>Inside your server.js</b>
+  <b>Inside your server.js</b><br>
   <code>
     // Express
     const express = require('express');
