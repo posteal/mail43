@@ -5,10 +5,10 @@ This library is <b>garanteed</b> up to a certain point, this means that any modi
 <br>
 <h1>How to use it</h1>
 <b>Install</b>
-<code>npm i express nodemailer mail43 --save</code><br>
+<pre>npm i express nodemailer mail43 --save</pre><br>
 <section>
   <b>Inside your server.js</b><br>
-  <code>
+  <pre>
     // COMPLETE EXAMPLE
     
     
@@ -51,7 +51,7 @@ This library is <b>garanteed</b> up to a certain point, this means that any modi
     
     // Starting sever
     app.listen(3000);
-  </code>
+  </pre>
 </section>
 
 <h1>Understanging the example (STEP by STEP)</h1>
@@ -66,11 +66,11 @@ This library is <b>garanteed</b> up to a certain point, this means that any modi
 <br>
 <span>Create your express server</span>
 <ol>
-  <li><code>const app = express();</code></li>
+  <li><pre>const app = express();</pre></li>
 </ol>
 <br>
 <span>Declare your email account (example: name@posteal.com)</span>
-<code>
+<pre>
   const EMAIL_ACCOUNT = new mail43.account(app, 'YOURDOMAIN.COM', {
       host: 'smtp.example.com',
       port: 465,
@@ -78,27 +78,27 @@ This library is <b>garanteed</b> up to a certain point, this means that any modi
       username: 'no-reply@example.com',
       password: 'Your email password'
     });
-</code>
+</pre>
 <span>How you can see, the mail43.account constructor, requires 3 parameters, the first one is your express app, then your domain, use for links and CTA in the email, and the last is your email authentication info</span>
 <br><br>
 <span>After a user complete the sign up form, send him the verification</span>
-<code>
+<pre>
 const verification = EMAIL_ACCOUNT.verify('example@gmail.com', {
       subject: 'Email verification test',
       body: 'Hello world!<br>Press this button: {button}<br>Or if it doesn't work, use this link {link}'
     }, 'YOUR_REDIRECT_URL', feed);
-</code>
+</pre>
 <span>This function returnes the verification UUID that you will use for comparison<br>
 {button} will be replaced with a nice style button written in HTML and CSS, and {link} with the link</span>
 <br><br>
 <span>Create the function "feed" that will hand the requests</span>
-<code>
+<pre>
     function feed(callback_type, data){
        if(callback_type === 'error') throw new Error(data);
        else if(callback_type === 'sended') console.log("Sended email verification (UUID: %s", data);
        else if(callback_type === 'verified' && data === verification) console.log("User verified the Email Account, UUID: %s", data);
     }
-</code>
+</pre>
 <span>the callback function (in this case it's "feed") accept 2 parameters, the callback_type and the data.<br>
 callback_type can be "error", "sended" or "verified".</span><br><br>
 
