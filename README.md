@@ -85,7 +85,7 @@ This library is <b>garanteed</b> up to a certain point, this means that any modi
 <pre>
 const verification = EMAIL_ACCOUNT.verify('example@gmail.com', {
       subject: 'Email verification test',
-      body: 'Hello world!<br>Press this button: {button}<br>Or if it doesn't work, use this link {link}'
+      body: 'Hello world!&lt;br>Press this button: {button}&lt;br>Or if it doesn't work, use this link {link}'
     }, 'YOUR_REDIRECT_URL', feed);
 </pre>
 <span>This function returnes the verification UUID that you will use for comparison<br>
